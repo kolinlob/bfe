@@ -15,6 +15,8 @@ function from(input) {
   if (input instanceof Observable)
     return new Observable((s) => input.subscribe(s));
 
+  throw new Error("unsupported input type");
+
   function fromPromise(promise, subscriber) {
     promise
       .then(
